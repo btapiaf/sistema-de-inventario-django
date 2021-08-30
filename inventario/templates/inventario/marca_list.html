@@ -12,7 +12,7 @@
       justify-content-between
     "
   >
-    <h6 class="m-0 font-weight-bold text-primary">Listado de Categorias</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Listado de Marcas</h6>
     <div class="dropdown no-arrow">
       <a
         class="dropdown-toggle"
@@ -30,19 +30,16 @@
         aria-labelledby="dropdownMenuLink"
       >
         <div class="dropdown-header">Acciones</div>
-        <a class="dropdown-item" href="{% url 'inventario:categoria_new' %}"
+        <a class="dropdown-item" href="{% url 'inventario:marca_new' %}"
           ><i class="far fa-calendar-plus"> </i> Nueva</a
         >
-        <a class="dropdown-item" href="#">Another action</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>
       </div>
     </div>
   </div>
   <!-- Card Body -->
   <div class="card-body">
     {% if not obj %}
-    <div class="alert alert-info">No hay Categorias</div>
+    <div class="alert alert-info">No hay Marcas</div>
 
     {% else %}
     <table class="table table-striped table-hover">
@@ -65,15 +62,15 @@
           <td>{{ item.fecha_modificacion| date:"d/m/Y H:i:s" }}</td>
           <td>
             <a
-              href="{% url 'inventario:categoria_edit' item.id %}"
+              href="{% url 'inventario:marca_edit' item.id %}"
               class="btn btn-warning btn-circle"
               role="button"
             >
               <i class="far fa-edit"></i>
             </a>
 
-            <a href="{% url 'inventario:categoria_eliminar' item.id %}" class="btn btn-danger btn-circle" role="button">
-              <i class="far fa-trash-alt"></i>
+            <a href="{% url 'inventario:marca_inactivar' item.id %}" class="btn btn-danger btn-circle" role="button">
+              <i class="far fa-thumbs-down"></i>
             </a>
           </td>
         </tr>
